@@ -1,0 +1,53 @@
+import 'package:flutter/material.dart';
+
+class pedido extends StatefulWidget {
+  const pedido({super.key});
+
+  @override
+  State<pedido> createState() => _pedidoState();
+}
+
+class _pedidoState extends State<pedido> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('INFORMACIÓN DEL DESARROLLLADOR'),
+      ),
+      body: ListView(
+        children: [
+          Center(
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: CircleAvatar(
+                backgroundImage: NetworkImage(
+                    'https://static.vecteezy.com/system/resources/previews/025/065/315/non_2x/fast-food-meal-with-ai-generated-free-png.png'),
+                radius: 60,
+              ),
+            ),
+          ),
+          ListTile(
+            leading: Icon(Icons.person_3),
+            title: Text('NOMBRE'),
+            subtitle: Text('Tribeca Gourmet Burger'),
+            onTap: () {},
+          ),
+          ListTile(
+            leading: Icon(Icons.money),
+            title: Text('valor'),
+            subtitle: Text('35.000'),
+            onTap: () {},
+          ),
+          ListTile(
+            leading: Icon(Icons.email),
+            title: Text('contacto'),
+            subtitle: Text('arias.arley1996@gmail.com'),
+            onTap: () {
+              // Acción para compartir la aplicación
+            },
+          ),
+        ],
+      ),
+    );
+  }
+}
