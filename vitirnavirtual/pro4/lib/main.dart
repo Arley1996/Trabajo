@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pro4/Api/consulta.dart';
 import 'package:pro4/interfaz/grid.dart';
 import 'package:pro4/interfaz/pedido.dart';
 import 'package:pro4/interfaz/programador.dart';
@@ -47,6 +48,29 @@ class _INICIOState extends State<INICIO> {
             ListTile(
               title: Text('MENU'),
               leading: Icon(Icons.menu),
+              onTap: () {
+                Buscatienda().then((r) {
+                  showModalBottomSheet(
+                      isScrollControlled: true,
+                      context: context,
+                      builder: (context) {
+                        return Scaffold(
+                          appBar: AppBar(
+                            title: Text("Vitrina Virtual"),
+                          ),
+                          body: ListView.builder(
+                            itemCount: r.length,
+                            itemBuilder: (BuildContext context, int i) {
+                              return ListTile(
+                                title: Text(r[i].title),
+                                leading: Text(r[i].id.toString()),
+                              );
+                            },
+                          ),
+                        );
+                      });
+                });
+              },
             ),
             Divider(),
             ListTile(
